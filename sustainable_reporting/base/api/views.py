@@ -42,14 +42,23 @@ def basic_signup_api(request):
     return Response({'error': 'Invalid request method'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
 
+def get_last_signed_up_email():
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT email FROM custom_user ORDER BY id DESC LIMIT 1")
+        row = cursor.fetchone()
+    return row[0] if row else None
+
 @api_view(['POST'])
 def additional_details_api(request):
-    if request.method == 'POST':
-        serializer = AdditionalDetailsSerializer(data=request.data)
-        if serializer.is_valid():
-            email = request.session.get('email')
-            serializer.validated_data['email'] = email
-            supplier = serializer.save()
-            return Response({'message': 'Additional details saved'}, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    return Response({'error': 'Invalid request method'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+    email = get_last_signed_up_email()
+    if not email:
+        return Response({'error': 'Email not found in session'}, status=status.HTTP_400_BAD_REQUEST)
+
+    data = request.data.copy()  
+    data['email'] = email  
+
+    serializer = AdditionalDetailsSerializer(data=data)
+    if serializer.is_valid():
+        supplier = serializer.save()
+        return Response({'message': 'Additional details saved'}, status=status.HTTP_200_OK)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

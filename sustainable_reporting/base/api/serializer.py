@@ -35,9 +35,28 @@ class BasicSignupSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.CustomUser
         fields = ['username', 'password', 'email']
+    def create(self, validated_data):
+        user = models.CustomUser.objects.create_user(
+            username=validated_data['username'],
+            email=validated_data['email'],
+            password=validated_data['password']
+        )
+        return user
 
 
 class AdditionalDetailsSerializer(serializers.ModelSerializer):
+    email = serializers.EmailField(required=False)  # Make email optional
+
     class Meta:
         model = models.Suplier
-        fields = ['supplier_name', 'country', 'contact_name', 'phone']
+        fields = ['supplier_name', 'country', 'contact_name', 'email', 'phone']
+
+    def create(self, validated_data):
+        supplier = models.Suplier.objects.create(
+            supplier_name=validated_data['supplier_name'],
+            country=validated_data['country'],
+            contact_name=validated_data['contact_name'],
+            email=validated_data['email'],
+            phone=validated_data['phone']
+        )
+        return supplier
