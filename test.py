@@ -12,8 +12,10 @@ if not openai_api_key:
 openai.api_key = openai_api_key
 
 # Path to your text file
-file_path = '/content/Supplier FAQs.txt'
-jsonl_file_path = '/content/eudr_data.jsonl'
+file_name = 'Supplier FAQs.txt'
+file_path = os.path.join(os.path.dirname(__file__), file_name)
+jsonl_file_name = 'eudr_data.jsonl'
+jsonl_file_path = os.path.join(os.path.dirname(__file__), jsonl_file_name)
 
 # Parse the text file (retrieved from llm.py)
 parsed_data = parse_text_file(file_path)
@@ -25,12 +27,25 @@ with open(jsonl_file_path, 'w') as jsonl_file:
 
 print(f"Data has been converted to JSONL format and saved to {jsonl_file_path}")
 
-# Load the JSONL data (retrieved from llm.py)
-with open("eudr_data.jsonl", "r") as file:
-    data = [json.loads(line) for line in file]
+def get_chat_completion(prompt):
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant knowledgeable about the European Union Deforestation Regulation (EUDR)."},
+            {"role": "user", "content": prompt}
+        ],
+        max_tokens=150
+    )
+    return response['choices'][0]['message']['content'].strip()
 
-# Example usage (retrieved from llm.py)
-for entry in data:
-    prompt = entry['prompt']
-    completion = get_chat_completion(prompt)
-    print(f"Prompt: {prompt}\nCompletion: {completion}\n")
+def interactive_test():
+    print("Interactive EUDR Chatbot. Type 'exit' to quit.")
+    while True:
+        prompt = input("You: ")
+        if prompt.lower() == 'exit':
+            break
+        completion = get_chat_completion(prompt)
+        print(f"Bot: {completion}\n")
+
+if __name__ == '__main__':
+    interactive_test()
