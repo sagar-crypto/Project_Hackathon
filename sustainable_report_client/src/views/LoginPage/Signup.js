@@ -79,10 +79,10 @@ export default function SignUp(props) {
   function handleSignup(e){
     axios({
         method: 'post',
-        url: "http://108.8.2.249:8000/api/signup/basic/",
+        url: "http://localhost:8000/api/signup/basic/",
         headers: {}, 
         data: {
-            name: name,  
+            username: name,  
             email: email,
             password: password
         }

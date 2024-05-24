@@ -76,14 +76,13 @@ export default function Login(props) {
     }
   }
   
-  function handleSignup(e){
+  function handleLogin(e){
     axios({
         method: 'post',
-        url: "http://108.8.2.249:8000/api/signup/basic/",
+        url: "http://localhost:8000/api/login/",
         headers: {}, 
         data: {
-            name: name,  
-            email: email,
+            username: name,  
             password: password
         }
       }).then(res =>{
@@ -137,60 +136,13 @@ else {
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form}>
                   <CardHeader color="primary" className={classes.cardHeader}>
-                    <h4>SIGN UP</h4>
-                    {/* <GoogleLogin
-                          clientId="744225883265-ru7qj83bl7bqsfcarhbp6c6qqqo71e64.apps.googleusercontent.com"
-                          buttonText="Login"
-                          render={renderProps => (
-                            <Button
-                            justIcon
-                            color="transparent"
-                            onClick={renderProps.onClick}
-                              >
-                            <i className={"fab fa-google-plus-g"} />
-                          </Button>
-                          )}
-                          onSuccess={responseSuccessGoogle}
-                          onFailure={(e)=>{ 
-                            setLoginFal(true);
-                          }}
-                          cookiePolicy={'single_host_origin'}
-                        /> */}
-                    {/* <div className={classes.socialLine}>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={e => e.preventDefault()}
-                      >
-                        <i className={"fab fa-twitter"} />
-                      </Button>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={e => e.preventDefault()}
-                      >
-                        <i className={"fab fa-facebook"} />
-                      </Button>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={e => e.preventDefault()}
-                      >
-                        <i className={"fab fa-google-plus-g"} />
-                      </Button>
-                    </div> */}
+                    <h4>Login</h4>
                   </CardHeader>
                   <p className={classes.divider}></p>
                   <CardBody>
                   <TextField
-                      label="Name"
-                      id="name"
+                      label="Username"
+                      id="Username"
                       type="text"
                       fullWidth
                       style={{paddingBottom:'10%'}}
@@ -204,24 +156,6 @@ else {
                     
                       value ={name}
                       onChange={e =>{setName(e.target.value)}}  
-                    />
-
-                  <TextField
-                      label="Email..."
-                      id="email"
-                      type="email"
-                      fullWidth
-                      style={{paddingBottom:'10%'}}
-                      InputProps={{
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <Email  style={{color:"purple"}} />
-                          </InputAdornment>
-                        )
-                      }}
-                    
-                      value ={email}
-                      onChange={e =>{setEmail(e.target.value)}}  
                     />
                 <TextField
                       label="Password"
@@ -239,49 +173,9 @@ else {
                       value ={password}
                       onChange={e =>{setPassword(e.target.value)}}  
                     />
-                    {/* <CustomInput
-                      labelText="Email..."
-                      id="email"
-                      value ={email}
-                      onChange={e =>{setEmail(e.target.value)}}
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        type: "email",
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <Email className={classes.inputIconsColor} />
-                          </InputAdornment>
-                        )
-                      }}
-                   
-                    />
-                    <CustomInput
-                      labelText="Password"
-                      id="pass"
-                      value ={password}  
-                      onChange={e =>{setPassword(e.target.value)}}
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        type: "password",
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <Icon className={classes.inputIconsColor}>
-                              lock_outline
-                            </Icon>
-                          </InputAdornment>
-                        ),
-                        autoComplete: "off"
-                         
-                      }}
-
-                    /> */}
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button simple color="primary" size="lg" onClick={handleSignup}>
+                    <Button simple color="primary" size="lg" onClick={handleLogin}>
                       Get started
                     </Button>
                   </CardFooter>
