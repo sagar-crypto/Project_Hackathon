@@ -1,5 +1,5 @@
 from django.contrib.auth import authenticate, login, logout
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponseBadRequest
 from django.db import connection
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
@@ -11,15 +11,20 @@ from rest_framework import status
 def login_api(request):
     username = request.data.get('username')
     password = request.data.get('password')
-    user = authenticate(request, username=username, password=password)
-    if user is not None:
-        login(request, user)
-        if user.user_type == 'supplier':
+    with connection.cursor() as cursor:
+        cursor.execute(
+            "SELECT * FROM custom_user WHERE username = %s AND password = %s",
+            [username, password]
+        )
+        user_data = cursor.fetchone()
+
+    if user_data:
+        if user_data[4] == 'supplier':
             return JsonResponse({'message': 'Login successful', 'user_type': 'supplier'})
         else:
             return JsonResponse({'message': 'Login successful', 'user_type': 'admin'})
     else:
-        return Response({'error': 'Invalid credentials'}, status=400)
+        return HttpResponseBadRequest('Invalid credentials')
 
 @api_view(['POST'])
 def logout_api(request):
