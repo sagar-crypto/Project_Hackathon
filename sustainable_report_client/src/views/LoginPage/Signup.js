@@ -45,19 +45,6 @@ export default function SignUp(props) {
   const { classes } = useStyles();
   const { ...rest } = props;
  
-  const responseSuccessGoogle =(response)=>{
-    axios({
-      method: 'post',
-      url: "http://localhost:5000/users/google/login/",
-      headers: {}, 
-      data: {
-          tokenId: response.tokenId
-      }
-    }).then(res=>{
-      console.log(res);
-      window.location.href="/login-page";
-    })
-  }
   const HandleLoginFaliure=()=>{
     if(loginFal === true){
       return(<SnackbarContent
@@ -97,7 +84,7 @@ export default function SignUp(props) {
         //    const token = res.data.token;
         //     console.log(token);
         //    localStorage.setItem('TokenKey', token);
-        //    window.location.href = "/index";
+           window.location.href = "/profile";
         })
 }
 const HandleSignupResponse=()=>{
