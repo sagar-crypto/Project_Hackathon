@@ -22,13 +22,27 @@ class Certificate(models.Model):
     def __str__(self):
         return self.certificate_name
 
-class Product(models.Model):
-    product_id = models.AutoField(primary_key=True)
+class Shipment(models.Model):
+    shipment_id = models.AutoField(primary_key=True)
     product_name = models.CharField(max_length=255)
     supplier_id = models.ForeignKey(Suplier, on_delete = models.SET_NULL, null = True)
-    category = models.CharField(max_length=255)
+    product_category = models.CharField(max_length=255)
     price = models.IntegerField()
     units_in_stock = models.IntegerField()
+    country_of_production = models.CharField(max_length=255)
+    certificate_id = models.ForeignKey(Certificate, on_delete = models.SET_NULL, null = True)
+    DOP_manufacture = models.DateTimeField()
+    geolocation = models.CharField(max_length=255)
+    transport_mode = models.CharField(max_length=255)
+    carbon_emissions = models.IntegerField()
+    start_location = models.CharField(max_length=255)
+    destination_location = models.CharField(max_length=255)
+    proof_certificate_1 = models.IntegerField()
+    proof_certificate_2 = models.IntegerField()
+    self_confirmation = models.CharField(max_length=255)
+    signature = models.CharField(max_length=255)
+    designation = models.CharField(max_length=255)
+    form_submited_date = models.DateTimeField()
 
     def __str__(self):
         return self.product_name
@@ -59,7 +73,7 @@ class SupplyChain(models.Model):
 class Compliance(models.Model):
     compliance_id = models.AutoField(primary_key=True)
     supplier_id = models.ForeignKey(Suplier, on_delete = models.SET_NULL, null = True)
-    product_id = models.ForeignKey(Product, on_delete = models.SET_NULL, null = True)
+    shipment_id = models.ForeignKey(Shipment, on_delete = models.SET_NULL, null = True)
     certificate_id = models.ForeignKey(Certificate, on_delete = models.SET_NULL, null = True)
     compliance_date = models.DateTimeField()
 
