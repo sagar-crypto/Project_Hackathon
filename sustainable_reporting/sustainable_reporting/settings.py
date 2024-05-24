@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'base.apps.BaseConfig',
+    'rest_framework',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -47,7 +50,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware'
 ]
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'sustainable_reporting.urls'
 
@@ -75,8 +82,12 @@ WSGI_APPLICATION = 'sustainable_reporting.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',  # or 'django.db.backends.mysql' for MySQL
+        'NAME': 'sample',
+        'USER': 'admin',
+        'PASSWORD': 'HackathonDatabase24',
+        'HOST': 'hackathon-database.clqucey0kgs6.eu-north-1.rds.amazonaws.com',
+        'PORT': '3306',  # default is 5432 for PostgreSQL and 3306 for MySQL
     }
 }
 
