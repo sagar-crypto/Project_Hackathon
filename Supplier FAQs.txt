@@ -1,0 +1,225 @@
+Supplier Information
+Q: What is the name of the supplier?
+
+A: This information has to be filled out by the supplier separately.
+
+Q: What is the registered trade name or trademark of the supplier?
+
+A: This information has to be filled out by the supplier separately.
+
+Q: What is the postal address of the supplier?
+
+A: This information has to be filled out by the supplier separately.
+
+Q: What is the e-mail address of the supplier?
+
+A: This information has to be filled out by the supplier separately.
+
+Q: What is the internet address of the supplier (if available)?
+
+A: This information has to be filled out by the supplier separately.
+
+Product Information
+Q: What is the trade name and type of the relevant products supplied?
+
+A: This information has to be filled out by the supplier separately.
+
+Q: What is the common name and full scientific name of the species (if applicable)?
+
+A: This information has to be filled out by the supplier separately. For example, Common Name: Oak, Scientific Name: Quercus robur.
+
+Q: What is the quantity of relevant products supplied (in kilograms net mass or in the specific unit of measurement according to HS code)?
+
+A: This information has to be filled out by the supplier separately.
+
+Production Information
+Q: What is the country of production, and if applicable, parts of the country for the commodity in question?
+
+A: This information has to be filled out by the supplier separately.
+
+Q: What is the geolocation of all land on which the relevant commodities were produced (latitude and longitude coordinates)?
+
+A: For plots larger than 4 hectares, polygons (latitude and longitude points) must be used to describe the perimeter of each plot.
+For plots smaller than 4 hectares, a single point of latitude and longitude can be used. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: What is the date or period of production of the relevant commodities?
+
+A: For non-cattle commodities, provide the date of harvesting and the time range of the production process.
+For cattle products, provide the geolocation of all establishments associated with raising the cattle (birthplace, farms, grazing lands, and slaughterhouses). Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Legal Compliance
+Q: Were the relevant raw materials produced in accordance with the relevant legislation of the country of production? (Yes/No)
+
+A: This information has to be filled out by the supplier separately.
+
+Q: Can you attach evidence that the relevant products are deforestation-free?
+
+A: Provide geolocation data, satellite images, or other documentation proving no deforestation occurred after December 31, 2020. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+14. Can you provide evidence that the relevant raw materials have been produced in accordance with the relevant legislation of the country of production?
+
+A: Include legal documents, certificates, and any relevant local government approvals. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Supply Chain
+Q: What are the names, addresses, and e-mail addresses of all companies or persons who have supplied you with the relevant products?
+
+A: This information has to be filled out by the supplier separately.
+
+Q: What are the names, addresses, and e-mail addresses of all companies, operators, or distributors to whom you have supplied the relevant products?
+
+A: This information has to be filled out by the supplier separately.
+
+Declaration
+Q: Do you confirm that the relevant products supplied are deforestation-free and have been produced in accordance with the relevant legislation of the country of production? (Yes/No)
+
+A: This information has to be filled out by the supplier separately.
+
+Q: Supplier's Declaration:
+
+A: “By submitting this questionnaire, the supplier confirms that it has carried out due diligence in accordance with Regulation (EU) 2023/1115 and that no or only a negligible risk of the relevant products being in breach of Article 3(a) or (b) of this Regulation has been identified.” This declaration has to be confirmed by the supplier separately.
+
+Signature
+Q: Who is signing for and on behalf of the supplier?
+
+A: This information has to be filled out by the supplier separately.
+
+Q: What is the date of signing?
+
+A: This information has to be filled out by the supplier separately.
+
+Q: What is the name and function of the person signing?
+
+A: This information has to be filled out by the supplier separately.
+
+Q: What is the signature?
+
+A: This information has to be filled out by the supplier separately.
+
+Additional Information for Understanding EUDR Compliance
+Q: Why does the Regulation require operators and traders which are not SMEs to collect geographic coordinates of the plots of land where the commodities were produced?
+
+A: Traceability to the plot of land is necessary to demonstrate that there is no deforestation at a specific location. Geographic information linking products to the plot of land is already used by part of the industry and certification organizations. Remotely sensed information (air photos, satellite images) or other information (e.g., photograph in the field with linked geotags and time stamps) may be used for verifying the geolocation of declared commodities and products. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: Do the traceability requirements apply to each batch of imported/exported/traded relevant commodities?
+
+A: Yes, the Regulation requires that operators (or traders which are not SMEs) trace every relevant commodity back to its plot of land before making it available or placing it on the market, or before exporting it. The submission of the due diligence statement which includes geolocation information is a requirement for the shipment for imports (customs procedure ‘release for free circulation’) and exports (customs procedure ‘export’) and the consignment for transactions within the Union market. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: How does the Regulation handle products traded in bulk or composite products?
+
+A: For products traded in bulk, such as soy or palm oil, the operator needs to ensure that all plots of land involved in a shipment are identified and that the commodities are not mixed at any step of the process with commodities of unknown origin or from areas deforested or degraded after the cut-off date of December 31, 2020. For relevant composite products, such as furniture with a wood component, the operator needs to geolocate all the plots of land where relevant commodities used for the manufacturing process have been produced. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: Are mass balance chains of custody allowed under the Regulation?
+
+A: No, mass balance chains of custody that allow for the mixing of deforestation-free commodities with commodities of unknown origin or non-deforestation-free commodities are not allowed under the Regulation because they do not guarantee that the commodities placed on the Union market or exported from it are deforestation-free. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: What happens if one part of a shipment is non-compliant?
+
+A: If a part of a shipment is non-compliant, the non-compliant part needs to be identified and separated from the rest before the shipment is placed on the market or exported. If identification and separation cannot be done, then the whole shipment is non-compliant and may not be placed on the market or exported. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: How should the concept of "plot of land" be understood under the Regulation?
+
+A: The "plot of land" is defined as land within a single real estate property, as recognized by the law of the country of production, which possesses sufficiently homogeneous conditions to allow an evaluation of the aggregate level of risk of deforestation and forest degradation associated with relevant commodities produced on that land. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: What should be done in the case of public or communal land that does not fall within the concept of "real-estate property"?
+
+A: The Regulation requires that commodities placed on the Union market or exported from it must have been produced or harvested on the land designated as a plot of land. The absence of a land registry or formal title should not prevent the designation of land that is de facto used as a plot of land. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: How can operators and traders that are not SMEs obtain geolocation data in countries where there are no property registers and where farmers might lack IDs or titles over their land?
+
+A: Farmers can collect the geolocation of their plots of land via mobile phones. They can do so regardless of the absence of a land registry or the lack of IDs or titles over their land. No personal information is required from the farmers unless they are direct suppliers of the operators or operators themselves. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: Is it sufficient to have producers map their own land?
+
+A: Yes. The Regulation does not apply to producers (i.e., smallholders) which do not place products on the Union market themselves and thus do not fall under the definition of operators and traders. In such cases, the operator will have to guarantee that the area effectively mapped and geolocated corresponds to the plot of land where the relevant commodities were produced. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: Do operators and traders which are not SMEs need to verify and prove that the geolocation is correct, or are they only expected to exercise due diligence on the risks associated with that location?
+
+A: Ensuring the truthfulness and precision of geolocation information is a crucial aspect of the responsibilities that operators and traders must fulfil. Providing incorrect geolocation details would constitute a breach of the obligations under the Regulation. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: For shipments containing commodities/products from a given land area (i.e., similar geolocation), are operators expected to conduct due diligence as many times as they place such commodities on the Union market?
+
+A: The geolocation information obligation that needs to be provided in the due diligence statements, via the Information System, is connected to specific commodities and products. Operators (or traders that are not SMEs) will need to indicate this information each time they intend to place, make available on the market, or export a commodity or a product on or from the Union market. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: Can a polygon cover several individual plots of land? Can polygons cover contiguous plots of land?
+
+A: Polygons are to be used to describe the perimeter of the plots of land where the commodity has been produced. Each polygon should indicate a single plot of land, whether contiguous or not. A polygon cannot be used to trace the perimeter of a random land area that might include plots of land only in some of its parts. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: How will geolocation allow for checking the validity of a no-deforestation claim in practice?
+
+A: Operators and enforcing authorities can cross-check the geolocation coordinates against satellite images or forest cover maps to assess if the products meet the deforestation-free requirement of the Regulation. However, operators and traders remain liable for ensuring compliance. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: How to declare polygons in a due diligence statement when the polygons are in shapefile format?
+
+A: The detailed rules for the functioning of the Information System will be established through an implementing act. Stakeholders will be informed and consulted on these developments via the Multi-Stakeholder Platform on Protecting and Restoring the World’s Forests. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: What constitutes supply chain traceability and how will it work in practice? How will data be passed along the supply chain securely?
+
+A: Operators and traders need to collect and keep information, documents, and data for 5 years to demonstrate compliance with the Regulation. This includes the collection of information, risk assessment measures, and risk mitigation measures. Operators will have to communicate all necessary information to demonstrate that due diligence was exercised and that no or only a negligible risk was found. The Information System will ensure data security and integrity. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: How will traceability work for products transported through or sourced from multiple third countries?
+
+A: Operators and traders are required to ensure that the required information on traceability is correct, regardless of the length or complexity of their supply chains. A shipment of soy sourced from several hundred plots of land and several countries would need to be associated with a due diligence statement that includes all relevant countries of production and geolocation information for every single plot of land that has contributed to the shipment. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: What is meant by the "date or time range of production" requirement in Article 9?
+
+A: This refers to the date of harvesting for commodities other than cattle. For cattle, it refers to the geolocation of all establishments associated with raising the cattle, including the birthplace, farms, grazing lands, and slaughterhouses. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: How does traceability for cattle work?
+
+A: Operators must geolocate all establishments associated with raising the cattle, encompassing the birthplace, farms where they were fed, grazing lands, and slaughterhouses. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: What can an operator or trader do if their upstream suppliers do not provide the required information?
+
+A: If operators and traders are unable to obtain the required information, they must refrain from placing the products concerned on the market or exporting them as it would result in a violation of the Regulation. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: Does the operator still need to ascertain the geolocation coordinates of the plot of land on which the commodities were grown when placing products on the market from a low-risk country?
+
+A: Yes, there is no exception for the traceability requirement via geolocation. Operators also have to assess the complexity of the relevant supply chain and the risk of circumvention of the Regulation. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: What products are included in the Regulation?
+
+A: The Regulation applies only to products listed in Annex I. Products not included in Annex I are not subject to the requirements of the Regulation even if they may contain commodities in the scope of the Regulation. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: Is there a threshold volume or value of a relevant commodity or relevant derived product, including within processed products, below which the Regulation would not apply?
+
+A: No. Operators and traders placing or making available on the Union market or exporting from it the relevant products included in Annex I, whatever their quantity, are subject to the obligations of the Regulation. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: What about products manufactured in the EU?
+
+A: Products produced inside the EU are subject to the same requirements as products produced outside the EU. The Regulation applies to products listed in Annex I, whether they are produced in the EU or imported. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: What is the role of certification/verification schemes under the Regulation?
+
+A: Certification schemes can be used by supply chain members to help their risk assessment to the extent the certification covers the information needed to comply with their obligations under the Regulation. Operators and traders will still be required to exercise due diligence and will be held accountable for any breach. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: What is country benchmarking and how will the benchmarking process work?
+
+A: A benchmarking system operated by the Commission will classify countries, or parts thereof, in three categories (high, standard, and low risk) according to the level of risk of producing commodities that are not deforestation-free. The criteria for the identification of the risk status of countries or parts thereof are defined in Article 29 of the Regulation. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: How can producer countries and other stakeholders feed into the benchmarking process?
+
+A: The Commission is required to engage in a specific dialogue with all countries that are, or risk being classified as, high risk, with the objective to reduce their level of risk. This dialogue will be an opportunity for partner countries to provide additional relevant information and work closely with the EU ahead of the finalization of the classification. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: What data security safeguards will the Information System and the 'EU Single Window' have?
+
+A: The Information System and its interconnection with the EU Single Window Environment for Customs will be aligned with the relevant data protection provisions. The system will be equipped with security measures to ensure the integrity and confidentiality of the information shared. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: When will the EU Forest Observatory be operational and how will it help companies implement the Regulation?
+
+A: The Observatory will support the implementation of the Regulation by providing scientific evidence, including land cover maps, regarding global deforestation and forest degradation. The Observatory will cover all forests worldwide, including European forests. The indicative date for the platform to be online is December 2023. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: What are the timelines for the Regulation's entry into force and application?
+
+A: The Regulation enters into force on June 29, 2023. The applicability of certain Articles will start on December 30, 2024, and on June 30, 2025, for micro- and small enterprises. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: Will the products placed on the Union market between the entry into force of the Regulation and its applicability dates have to comply with the requirements of the Regulation?
+
+A: No, operators and traders do not have to comply with the requirements for products placed on the Union market before December 30, 2024, for non-SMEs, and June 30, 2025, for SMEs. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: Will the Commission issue guidelines on this Regulation?
+
+A: The Commission is gathering inputs and promoting dialogue among stakeholders to provide informal guidance. This document on Frequently Asked Questions answers the most frequent questions and will be updated over time. Additional facilitation tools will be mobilized if needed. Refer to the EUDR FAQs and the EUDR regulation document for detailed requirements. More information can be found on the European Commission's EUDR page.
+
+Q: Under what circumstances will I be given EUDR or non-EUDR compliance?
+
+A: If any of your commodities do not cause any form of deforestation, then they will be EUDR compliant. If they cause deforestation in any manner, they will not be compliant. Additionally, if as a supplier you do not know whether the commodities cause deforestation, they are also not compliant. Compliance must be proven by obtaining a certificate from the required regulatory body of the EU. Refer to the EUDR FAQs and the EUDR regulation document for detailed geolocation requirements. More information can be found on the European Commission's EUDR page.
