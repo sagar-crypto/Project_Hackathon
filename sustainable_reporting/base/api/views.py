@@ -20,7 +20,7 @@ def login_api(request):
 
     if user_data:
         if user_data[4] == 'supplier':
-            return JsonResponse({'message': 'Login successful', 'user_type': 'supplier'})
+            return JsonResponse({'message': 'Login successful', 'user_type': 'supplier'}, status=status.HTTP_200_OK)
         else:
             return JsonResponse({'message': 'Login successful', 'user_type': 'admin'})
     else:
