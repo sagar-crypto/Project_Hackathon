@@ -1,21 +1,21 @@
 import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
+
 // @material-ui/core components
-import { makeStyles } from "@mui/material/styles";
+import { makeStyles } from 'tss-react/mui';
+
 // @material-ui/icons
 
 // core components
-import styles from "assets/jss/material-kit-react/components/cardStyle.js";
+import styles from "../../assets/jss/material-kit-react/components/cardStyle.js";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles()(styles);
 
 export default function Card(props) {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { className, children, plain, carousel, ...rest } = props;
-  const cardClasses = classNames({
+  const cardClasses = cx({
     [classes.card]: true,
     [classes.cardPlain]: plain,
     [classes.cardCarousel]: carousel,

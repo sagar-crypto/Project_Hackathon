@@ -1,10 +1,10 @@
 import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
+
 // @material-ui/core components
-import { makeStyles } from "@mui/material/styles";
+import { makeStyles } from 'tss-react/mui';
+
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
@@ -16,10 +16,10 @@ import Menu from "@mui/icons-material/Menu";
 // core components
 import styles from "assets/jss/material-kit-react/components/headerStyle.js";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles()(styles);
 
 export default function Header(props) {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   React.useEffect(() => {
     if (props.changeColorOnScroll) {
@@ -54,7 +54,7 @@ export default function Header(props) {
     }
   };
   const { color, rightLinks, leftLinks, brand, fixed, absolute } = props;
-  const appBarClasses = classNames({
+  const appBarClasses = cx({
     [classes.appBar]: true,
     [classes[color]]: color,
     [classes.absolute]: absolute,

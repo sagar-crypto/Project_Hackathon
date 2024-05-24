@@ -1,8 +1,10 @@
 import React from "react";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
+
 // @material-ui/core components
-import { makeStyles } from "@mui/material/styles";
+import { makeStyles } from 'tss-react/mui';
+
 import Grid from "@mui/material/Grid";
 
 const styles = {
@@ -16,10 +18,10 @@ const styles = {
   }
 };
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles()(styles);
 
 export default function GridItem(props) {
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { children, className, ...rest } = props;
   return (
     <Grid item {...rest} className={classes.grid + " " + className}>

@@ -3,11 +3,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 // @material-ui/core components
-import { makeStyles } from "@mui/material/styles";
+import { makeStyles } from 'tss-react/mui';
 
 import styles from "assets/jss/material-kit-react/components/badgeStyle.js";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles()(styles);
 
 export default function Badge(props) {
   const classes = useStyles();

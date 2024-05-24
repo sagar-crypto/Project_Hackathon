@@ -1,16 +1,18 @@
 import React from "react";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
+
 // @material-ui/core components
-import { makeStyles } from "@mui/material/styles";
+import { makeStyles } from 'tss-react/mui';
+
 // core components
 import styles from "assets/jss/material-kit-react/components/typographyStyle.js";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles()(styles);
 
 export default function Quote(props) {
   const { text, author } = props;
-  const classes = useStyles();
+  const { classes } = useStyles();
   return (
     <blockquote className={classes.defaultFontStyle + " " + classes.quote}>
       <p className={classes.quoteText}>{text}</p>

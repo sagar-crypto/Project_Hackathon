@@ -1,8 +1,10 @@
 import React from "react";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
+
 // @material-ui/core components
-import { makeStyles } from "@mui/material/styles";
+import { makeStyles } from 'tss-react/mui';
+
 import Snack from "@mui/material/SnackbarContent";
 import IconButton from "@mui/material/IconButton";
 import Icon from "@mui/material/Icon";
@@ -10,14 +12,13 @@ import Icon from "@mui/material/Icon";
 import Close from "@mui/icons-material/Close";
 // core components
 
-import styles from  ''
-//  "assets/jss/material-kit-react/components/snackbarContentStyle.js";
+import styles from  'assets/jss/material-kit-react/components/snackbarContentStyle.js'
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles()(styles);
 
 export default function SnackbarContent(props) {
   const { message, color, close, icon } = props;
-  const classes = useStyles();
+  const { classes } = useStyles();
   var action = [];
   const closeAlert = () => {
     setAlert(null);

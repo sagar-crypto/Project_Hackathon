@@ -1,24 +1,23 @@
 import React from "react";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
-// nodejs library that concatenates classes
-import classNames from "classnames";
 
 // @material-ui/core components
-import { makeStyles } from "@mui/material/styles";
+import { makeStyles } from 'tss-react/mui';
+
 import Button from "@mui/material/Button";
 
 import styles from "assets/jss/material-kit-react/components/paginationStyle.js";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles()(styles);
 
 export default function Pagination(props) {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { pages, color } = props;
   return (
     <ul className={classes.pagination}>
       {pages.map((prop, key) => {
-        const paginationLink = classNames({
+        const paginationLink = cx({
           [classes.paginationLink]: true,
           [classes[color]]: prop.active,
           [classes.disabled]: prop.disabled

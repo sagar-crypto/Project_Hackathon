@@ -1,11 +1,10 @@
 import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 
 // @material-ui/core components
-import { makeStyles } from "@mui/material/styles";
+import { makeStyles } from 'tss-react/mui';
+
 import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import ClickAwayListener from "@mui/material/ClickAwayListener";
@@ -16,11 +15,11 @@ import Icon from "@mui/material/Icon";
 import Popper from "@mui/material/Popper";
 
 // core components
-import Button from "components/CustomButtons/Button.js";
+import Button from "@mui/material/Button";
 
 import styles from "assets/jss/material-kit-react/components/customDropdownStyle.js";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles()(styles);
 
 export default function CustomDropdown(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -43,7 +42,7 @@ export default function CustomDropdown(props) {
     }
     setAnchorEl(null);
   };
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const {
     buttonText,
     buttonIcon,
@@ -57,12 +56,12 @@ export default function CustomDropdown(props) {
     rtlActive,
     noLiPadding
   } = props;
-  const caretClasses = classNames({
+  const caretClasses = cx({
     [classes.caret]: true,
     [classes.caretActive]: Boolean(anchorEl),
     [classes.caretRTL]: rtlActive
   });
-  const dropdownItem = classNames({
+  const dropdownItem = cx({
     [classes.dropdownItem]: true,
     [classes[hoverColor + "Hover"]]: true,
     [classes.noLiPadding]: noLiPadding,
@@ -109,7 +108,7 @@ export default function CustomDropdown(props) {
             ? "bottom-start"
             : "bottom"
         }
-        className={classNames({
+        className={cx({
           [classes.popperClose]: !anchorEl,
           [classes.popperResponsive]: true
         })}

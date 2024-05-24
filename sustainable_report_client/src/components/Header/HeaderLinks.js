@@ -6,7 +6,8 @@ import IconButton from "@mui/material/IconButton";
 import { Link } from "react-router-dom";
 
 // @material-ui/core components
-import { makeStyles } from "@mui/material/styles";
+import { makeStyles } from 'tss-react/mui';
+
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import Tooltip from "@mui/material/Tooltip";
@@ -16,17 +17,17 @@ import SearchIcon from '@mui/icons-material/Search';
 
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
-import Button from "components/CustomButtons/Button.js";
+import Button from "@mui/material/Button";
 import Input from '@mui/material/Input';
 import InputAdornment from '@mui/material/InputAdornment'
 import FormControl from '@mui/material/FormControl';
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles()(styles);
 
 export default function HeaderLinks(props) {
   const [search , setSearch] = useState("");
-  const classes = useStyles();
+  const { classes } = useStyles();
   const handleSearch =()=>{
 
   }

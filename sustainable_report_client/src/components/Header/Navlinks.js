@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import { GoogleLogin } from 'react-google-login';
+
 // import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 // @material-ui/core components
-import { makeStyles } from "@mui/material/styles";
+import { makeStyles } from 'tss-react/mui';
+
 import InputAdornment from "@mui/material/InputAdornment";
 // import Alert from '@material-ui/lab/Alert';
 
@@ -13,7 +15,7 @@ import Email from "@mui/icons-material/Email";
 import LockIcon from '@mui/icons-material/Lock';
 // core components
 
-import Button from "components/CustomButtons/Button.js";
+import Button from "@mui/material/Button";
 
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
@@ -37,13 +39,13 @@ function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-const usStyles = makeStyles(modalStyle);
-const useStyles = makeStyles(styles);
+const usStyles = makeStyles()(modalStyle);
+const useStyles = makeStyles()(styles);
 
 export default function Signin(props) {
   const [modal, setModal] = React.useState(props.stat);
-  const classe = usStyles();
-  const classes = useStyles();
+  const { classes: classe } = usStyles();
+  const { classes } = useStyles();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [googleavailable, setGoogav] = useState(true);

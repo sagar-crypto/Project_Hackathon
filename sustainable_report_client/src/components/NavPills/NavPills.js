@@ -1,12 +1,11 @@
 import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 import SwipeableViews from "react-swipeable-views";
 
 // @material-ui/core components
-import { makeStyles } from "@mui/material/styles";
+import { makeStyles } from 'tss-react/mui';
+
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 
@@ -16,7 +15,7 @@ import GridItem from "components/Grid/GridItem.js";
 
 import styles from "assets/jss/material-kit-react/components/navPillsStyle.js";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles()(styles);
 
 export default function NavPills(props) {
   const [active, setActive] = React.useState(props.active);
@@ -26,9 +25,9 @@ export default function NavPills(props) {
   const handleChangeIndex = index => {
     setActive(index);
   };
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { tabs, direction, color, horizontal, alignCenter } = props;
-  const flexContainerClasses = classNames({
+  const flexContainerClasses = cx({
     [classes.flexContainer]: true,
     [classes.horizontalDisplay]: horizontal !== undefined
   });
@@ -49,7 +48,7 @@ export default function NavPills(props) {
         if (prop.tabIcon !== undefined) {
           icon["icon"] = <prop.tabIcon className={classes.tabIcon} />;
         }
-        const pillsClasses = classNames({
+        const pillsClasses = cx({
           [classes.pills]: true,
           [classes.horizontalPills]: horizontal !== undefined,
           [classes.pillsWithIcons]: prop.tabIcon !== undefined

@@ -1,11 +1,10 @@
 import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 
 // material-ui components
-import { makeStyles } from "@mui/material/styles";
+import { makeStyles } from 'tss-react/mui';
+
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Icon from "@mui/material/Icon";
@@ -16,7 +15,7 @@ import CardHeader from "components/Card/CardHeader.js";
 
 import styles from "assets/jss/material-kit-react/components/customTabsStyle.js";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles()(styles);
 
 export default function CustomTabs(props) {
   const [value, setValue] = React.useState(0);
@@ -24,9 +23,9 @@ export default function CustomTabs(props) {
   const handleChange = (event, value) => {
     setValue(value);
   };
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { headerColor, plainTabs, tabs, title, rtlActive } = props;
-  const cardTitle = classNames({
+  const cardTitle = cx({
     [classes.cardTitle]: true,
     [classes.cardTitleRTL]: rtlActive
   });

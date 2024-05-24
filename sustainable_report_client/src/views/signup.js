@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import { GoogleLogin } from 'react-google-login';
+// import { GoogleLogin } from 'react-google-login';
+
 // import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
-// @material-ui/core components
-import { makeStyles } from "@mui/material/styles";
+// @mui/material components
+import { makeStyles } from 'tss-react/mui';
+
 import InputAdornment from "@mui/material/InputAdornment";
-// import Alert from '@material-ui/lab/Alert';
+// import Alert from '@mui/lab/Alert';
 import SnackbarContent from "components/Snackbar/SnackbarContent.js";
-// @material-ui/icons
+// @mui/icons-material
 import Email from "@mui/icons-material/Email";
 
 import LockIcon from '@mui/icons-material/Lock';
@@ -16,7 +18,7 @@ import LockIcon from '@mui/icons-material/Lock';
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
-import Button from "components/CustomButtons/Button.js";
+import Button from "@mui/material/Button";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
@@ -26,7 +28,7 @@ import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
 import image from "assets/img/SignIn.jpeg";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles()(styles);
 
 export default function SignUp(props) {
   const [email , setEmail] = useState("");
@@ -37,7 +39,7 @@ export default function SignUp(props) {
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { ...rest } = props;
   // const responseGooglesuccess =(response)=>{
   //     console.log(response);
@@ -138,26 +140,6 @@ const responseFacebook =()=>{
                   <CardHeader color="primary" className={classes.cardHeader}>
                     <h4>Log In</h4>
                     <div className={classes.socialLine}>
-                    <GoogleLogin
-                          clientId="744225883265-ru7qj83bl7bqsfcarhbp6c6qqqo71e64.apps.googleusercontent.com"
-                          buttonText="Login"
-                          render={renderProps => (
-                            <Button
-                            justIcon
-                            color="transparent"
-                            onClick={renderProps.onClick}
-                              >
-                            <i className={"fab fa-google-plus-g"} />
-                          </Button>
-                          )}
-                          onSuccess={responseSuccessGoogle}
-                          onFailure={(e)=>{ 
-                            setGoogav(false);
-                            ResponseGoogle(1);
-                          }}
-                          cookiePolicy={'single_host_origin'}
-                        />
-
                       {/* <Button
                         justIcon
                         href="#pablo"

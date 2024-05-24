@@ -1,21 +1,21 @@
 import React from "react";
-// nodejs library that concatenates classes
-import classNames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
+
 // @material-ui/core components
-import { makeStyles } from "@mui/material/styles";
+import { makeStyles } from 'tss-react/mui';
+
 // @material-ui/icons
 
 // core components
 import styles from "assets/jss/material-kit-react/components/cardBodyStyle.js";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles()(styles);
 
 export default function CardBody(props) {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { className, children, ...rest } = props;
-  const cardBodyClasses = classNames({
+  const cardBodyClasses = cx({
     [classes.cardBody]: true,
     [className]: className !== undefined
   });

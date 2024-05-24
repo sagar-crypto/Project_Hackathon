@@ -2,27 +2,25 @@
 import React from "react";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
-// nodejs library that concatenates classes
-import classNames from "classnames";
 // material-ui core components
-import { List, ListItem } from "@material-ui/core";
-import { makeStyles } from "@mui/material/styles";
+import { List, ListItem } from "@mui/material";
+import { makeStyles } from 'tss-react/mui';
 
 // @material-ui/icons
 import Favorite from "@mui/icons-material/Favorite";
 
 import styles from "assets/jss/material-kit-react/components/footerStyle.js";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles()(styles);
 
 export default function Footer(props) {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const { whiteFont } = props;
-  const footerClasses = classNames({
+  const footerClasses = cx({
     [classes.footer]: true,
     [classes.footerWhiteFont]: whiteFont
   });
-  const aClasses = classNames({
+  const aClasses = cx({
     [classes.a]: true,
     [classes.footerWhiteFont]: whiteFont
   });

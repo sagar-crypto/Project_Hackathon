@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from 'axios';
-// @material-ui/core components
-import { makeStyles } from "@mui/material/styles";
+
+// @mui/material components
+import { makeStyles } from 'tss-react/mui';
+
 import InputAdornment from "@mui/material/InputAdornment";
 import Icon from "@mui/material/Icon";
-// @material-ui/icons
+// @mui/icons-material
 import Email from "@mui/icons-material/Email";
 import People from "@mui/icons-material/People";
 // core components
@@ -12,7 +14,7 @@ import People from "@mui/icons-material/People";
 import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
-import Button from "components/CustomButtons/Button.js";
+import Button from "@mui/material/Button";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
@@ -23,7 +25,7 @@ import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
 import image from "assets/img/bg7.jpg";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles()(styles);
 
 export default function ForgotPass(props) {
 
@@ -31,7 +33,7 @@ export default function ForgotPass(props) {
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
-  const classes = useStyles();
+  const { classes } = useStyles();
   const { ...rest } = props;
   const [email , setEmail] = useState("");
   

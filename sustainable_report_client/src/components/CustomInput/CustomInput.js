@@ -1,20 +1,20 @@
 import React from "react";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
-// nodejs library that concatenates classes
-import classNames from "classnames";
+
 // @material-ui/core components
-import { makeStyles } from "@mui/material/styles";
+import { makeStyles } from 'tss-react/mui';
+
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Input from "@mui/material/Input";
 
 import styles from "assets/jss/material-kit-react/components/customInputStyle.js";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles()(styles);
 
 export default function CustomInput(props) {
-  const classes = useStyles();
+  const { classes, cx } = useStyles();
   const {
     formControlProps,
     labelText,
@@ -27,26 +27,26 @@ export default function CustomInput(props) {
     success
   } = props;
 
-  const labelClasses = classNames({
+  const labelClasses = cx({
     [" " + classes.labelRootError]: error,
     [" " + classes.labelRootSuccess]: success && !error
   });
-  const underlineClasses = classNames({
+  const underlineClasses = cx({
     [classes.underlineError]: error,
     [classes.underlineSuccess]: success && !error,
     [classes.underline]: true,
     [classes.whiteUnderline]: white
   });
-  const marginTop = classNames({
+  const marginTop = cx({
     [inputRootCustomClasses]: inputRootCustomClasses !== undefined
   });
-  const inputClasses = classNames({
+  const inputClasses = cx({
     [classes.input]: true,
     [classes.whiteInput]: white
   });
   var formControlClasses;
   if (formControlProps !== undefined) {
-    formControlClasses = classNames(
+    formControlClasses = cx(
       formControlProps.className,
       classes.formControl
     );
