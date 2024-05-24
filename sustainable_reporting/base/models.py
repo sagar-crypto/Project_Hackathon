@@ -1,15 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, UserManager
 
 # Create your models here.
 
 
-class User(AbstractUser):
-    USER_TYPE_CHOICES = [
-        ('admin', 'Admin'),
-        ('supplier', 'supplier'),
-    ]
-    user_type = models.CharField(max_length=10, choices=USER_TYPE_CHOICES, default='supplier')
 class Suplier(models.Model):
     supplier_id = models.AutoField(primary_key=True)
     supplier_name = models.CharField(max_length=255)
@@ -24,7 +18,7 @@ class Suplier(models.Model):
 class Certificate(models.Model):
     certificate_id = models.AutoField(primary_key=True)
     certificate_name = models.CharField(max_length=255)
-    certificate_url = models.CharField(max_length=255)
+    certificate_url = models.CharField(max_length=255, null = True)
     issued_by = models.CharField(max_length=255)
     valid_until = models.DateTimeField()
 
@@ -88,4 +82,25 @@ class Compliance(models.Model):
 
     def __str__(self):
         return f"Compliance {self.compliance_id} on {self.compliance_date}"
+    
+class CustomUser(AbstractBaseUser, PermissionsMixin):
+    USER_TYPE_CHOICES = [
+        ('admin', 'Admin'),
+        ('supplier', 'Supplier'),
+    ]
+    user_type = models.CharField(max_length=10, choices=USER_TYPE_CHOICES, default='supplier')
+
+    email = models.EmailField(unique=True)
+    username = models.CharField(max_length=150, unique=True)
+
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
+
+    objects = UserManager()
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
+
+    class Meta:
+        db_table = 'custom_user'
 

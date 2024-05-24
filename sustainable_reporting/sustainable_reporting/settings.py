@@ -133,3 +133,4 @@ STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 # Use AWS S3 for media files storage
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AUTH_USER_MODEL = 'base.CustomUser'
