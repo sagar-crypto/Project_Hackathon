@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Django",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "/Users/sagarsikdar/projects/Project_Hackathon/sustainable_reporting/manage.py",
+            "args": [
+                "runserver",
+                "--noreload"
+            ],
+            "django": true,
+            "console": "integratedTerminal",
+            // "env": {
+            //     "DJANGO_SETTINGS_MODULE": "./sustainable_reporting/settings"
+            // }
+        }
+    ]
+}

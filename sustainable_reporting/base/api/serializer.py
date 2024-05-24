@@ -31,26 +31,13 @@ class ComplianceSerializer(serializers.ModelSerializer):
         model = models.Compliance
         fields = '__all__'
 
-class SignupSerializer(serializers.ModelSerializer):
-    username = serializers.CharField(max_length=150)
-    password = serializers.CharField(max_length=128)
-    supplier_name = serializers.CharField(max_length=100)
-    country = serializers.CharField(max_length=100)
-    contact_name = serializers.CharField(max_length=100)
-    email = serializers.EmailField()
-    phone = serializers.CharField(max_length=15)
+class BasicSignupSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.CustomUser
+        fields = ['username', 'password', 'email']
 
-    def create_user(self, validated_data):
-        user = models.User.objects.create_user(
-            username=validated_data['username'],
-            password=validated_data['password']
-        )
-        models.Supplier.objects.create(
-            user=user,
-            supplier_name=validated_data['supplier_name'],
-            country=validated_data['country'],
-            contact_name=validated_data['contact_name'],
-            email=validated_data['email'],
-            phone=validated_data['phone']
-        )
-        return user
+
+class AdditionalDetailsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Suplier
+        fields = ['supplier_name', 'country', 'contact_name', 'phone']
