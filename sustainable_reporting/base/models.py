@@ -1,7 +1,15 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
+
+class User(AbstractUser):
+    USER_TYPE_CHOICES = [
+        ('admin', 'Admin'),
+        ('supplier', 'supplier'),
+    ]
+    user_type = models.CharField(max_length=10, choices=USER_TYPE_CHOICES, default='supplier')
 class Suplier(models.Model):
     supplier_id = models.AutoField(primary_key=True)
     supplier_name = models.CharField(max_length=255)
@@ -16,6 +24,7 @@ class Suplier(models.Model):
 class Certificate(models.Model):
     certificate_id = models.AutoField(primary_key=True)
     certificate_name = models.CharField(max_length=255)
+    certificate_url = models.CharField(max_length=255)
     issued_by = models.CharField(max_length=255)
     valid_until = models.DateTimeField()
 
