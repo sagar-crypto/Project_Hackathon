@@ -6,6 +6,11 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializer import BasicSignupSerializer, AdditionalDetailsSerializer
 from rest_framework import status
+import openai
+from decouple import config
+
+
+openai.api_key =config('OPEN_AI_KEY')
 
 @api_view(['POST'])
 def login_api(request):
@@ -62,3 +67,22 @@ def additional_details_api(request):
         supplier = serializer.save()
         return Response({'message': 'Additional details saved'}, status=status.HTTP_200_OK)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+def get_chat_completion(prompt):
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",  # or another available model
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant knowledgeable about the European Union Deforestation Regulation (EUDR)."},
+            {"role": "user", "content": prompt}
+        ],
+        max_tokens=150
+    )
+    return response['choices'][0]['message']['content'].strip()
+
+
+def get_response(request):
+    if request.method == 'POST':
+        user_input = request.POST.get('user_input')
+        response = get_chat_completion(user_input)
+        return JsonResponse({'response': response})
+    return JsonResponse({'response': 'Invalid request method'})
