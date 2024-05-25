@@ -5,6 +5,7 @@ import Login from "views/LoginPage/LoginPage.js";
 import SignUp from "views/LoginPage/Signup.js";
 import Home from "views/home.js";     
 import SupplierDetail from "views/LoginPage/supplierdetail.js"
+import Form from "views/form.js"
 
 // import evef from "./views/LoginPage/EmailVerification.js"
 // import resetpass from "./views/LoginPage/ResetPassword.js"
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/profile" element={<SupplierDetail />} />
+          <Route path="/form" element={<Form />} />
       </Routes>
     </BrowserRouter>
   );

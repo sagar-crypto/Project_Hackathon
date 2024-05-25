@@ -132,7 +132,7 @@ else {
         <div className={classes.container}>
           <HandleSignupResponse/><HandleLoginFaliure/>
           <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={4}>
+            <GridItem style={{ position: 'fixed', left: '50%',transform: 'translateX(-50%)'}} xs={12} sm={12} md={4}>
               <Card className={classes[cardAnimaton]}>
                 <form className={classes.form}>
                   <CardHeader color="primary" className={classes.cardHeader}>

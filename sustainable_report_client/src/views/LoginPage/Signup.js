@@ -44,24 +44,6 @@ export default function SignUp(props) {
   }, 700);
   const { classes } = useStyles();
   const { ...rest } = props;
- 
-  const HandleLoginFaliure=()=>{
-    if(loginFal === true){
-      return(<SnackbarContent
-        message={
-          <span>
-           Something went wrong with Google SignUp
-          </span>
-        }
-        close
-        color="danger"
-        icon="info_outline"
-      />);
-    }
-    else {
-      return null;
-    }
-  }
   
   function handleSignup(e){
     axios({
@@ -81,29 +63,8 @@ export default function SignUp(props) {
              else{
               setSignupColor("danger");
              }
-        //    const token = res.data.token;
-        //     console.log(token);
-        //    localStorage.setItem('TokenKey', token);
            window.location.href = "/profile";
         })
-}
-const HandleSignupResponse=()=>{
-if(message !== ""){
-  return(<SnackbarContent
-    message={
-      <span>
-       {message}
-      </span>
-    }
-    close
-    color={signupcolor}
-    icon="info_outline"
-  />);
-
-}
-else {
-  return null;
-}
 }
 
   return (
@@ -118,60 +79,12 @@ else {
         }}
       >
         <div className={classes.container}>
-          <HandleSignupResponse/><HandleLoginFaliure/>
-          <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={4}>
-              <Card className={classes[cardAnimaton]}>
+          <GridContainer justify-content="center">
+            <GridItem style={{ position: 'fixed', left: '50%',transform: 'translateX(-50%)'}} xs={12} sm={12} md={4}>
+              <Card justify="center" className={classes[cardAnimaton]}>
                 <form className={classes.form}>
                   <CardHeader color="primary" className={classes.cardHeader}>
                     <h4>SIGN UP</h4>
-                    {/* <GoogleLogin
-                          clientId="744225883265-ru7qj83bl7bqsfcarhbp6c6qqqo71e64.apps.googleusercontent.com"
-                          buttonText="Login"
-                          render={renderProps => (
-                            <Button
-                            justIcon
-                            color="transparent"
-                            onClick={renderProps.onClick}
-                              >
-                            <i className={"fab fa-google-plus-g"} />
-                          </Button>
-                          )}
-                          onSuccess={responseSuccessGoogle}
-                          onFailure={(e)=>{ 
-                            setLoginFal(true);
-                          }}
-                          cookiePolicy={'single_host_origin'}
-                        /> */}
-                    {/* <div className={classes.socialLine}>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={e => e.preventDefault()}
-                      >
-                        <i className={"fab fa-twitter"} />
-                      </Button>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={e => e.preventDefault()}
-                      >
-                        <i className={"fab fa-facebook"} />
-                      </Button>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={e => e.preventDefault()}
-                      >
-                        <i className={"fab fa-google-plus-g"} />
-                      </Button>
-                    </div> */}
                   </CardHeader>
                   <p className={classes.divider}></p>
                   <CardBody>
@@ -226,46 +139,6 @@ else {
                       value ={password}
                       onChange={e =>{setPassword(e.target.value)}}  
                     />
-                    {/* <CustomInput
-                      labelText="Email..."
-                      id="email"
-                      value ={email}
-                      onChange={e =>{setEmail(e.target.value)}}
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        type: "email",
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <Email className={classes.inputIconsColor} />
-                          </InputAdornment>
-                        )
-                      }}
-                   
-                    />
-                    <CustomInput
-                      labelText="Password"
-                      id="pass"
-                      value ={password}  
-                      onChange={e =>{setPassword(e.target.value)}}
-                      formControlProps={{
-                        fullWidth: true
-                      }}
-                      inputProps={{
-                        type: "password",
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <Icon className={classes.inputIconsColor}>
-                              lock_outline
-                            </Icon>
-                          </InputAdornment>
-                        ),
-                        autoComplete: "off"
-                         
-                      }}
-
-                    /> */}
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
                     <Button simple color="primary" size="lg" onClick={handleSignup}>
