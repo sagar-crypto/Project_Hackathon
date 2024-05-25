@@ -96,7 +96,7 @@ export default function Login(props) {
         //    const token = res.data.token;
         //     console.log(token);
         //    localStorage.setItem('TokenKey', token);
-        //    window.location.href = "/index";
+            window.location.href = "/form";
         })
 }
 const HandleSignupResponse=()=>{
