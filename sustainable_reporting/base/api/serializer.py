@@ -65,4 +65,4 @@ class AdditionalDetailsSerializer(serializers.ModelSerializer):
 class ShipmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Shipment
-        fields = '__all__'
+        exclude = ['shipment_id']

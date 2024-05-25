@@ -42,7 +42,17 @@ export default function Form(props) {
   const [transport, setTransport] = useState("");
   const [carbonEmission, setcarbonEmission] = useState("");
   const [compliance, setCompliance] = useState("");
-  const [proof, setProof] = useState("");
+  const [proof_certificate_1, setProof1] = useState("");
+  const [proof_certificate_2, setProof2] = useState("");
+  const [self_confirmation, setSelfconfirmation] = useState("");
+  const [signature, setSignature] = useState("");
+  const [designation, setDesignation] = useState("");
+  const [form_submited_date, setFormSubmissionDate] = useState("");
+  const [geolocation, setGeolocation] = useState("");
+  const [start_location, setStartLoaction] = useState("");
+  const [destination_location, setDestinationLocation] = useState("");
+  const [product_category, setProductCategory] = useState("");
+  const [certificate_id, setCertificateId] = useState("");
   const [units, setUnits] = useState("");
 
   const [signupcolor, setSignupColor] = useState("warning");
@@ -80,16 +90,26 @@ export default function Form(props) {
         headers: {}, 
         data: {
             userId: user_id,
-            shipmentid: shipmentid,  
-            product: product,
+            shipment_id: shipmentid,  
+            product_name: product,
             price: price,
             country: country,
             date: date,
             transport: transport,
             carbonEmission: carbonEmission,
             compliance: compliance,
-            proof: proof,
-            units: units
+            proof_certificate_1: proof_certificate_1,
+            proof_certificate_2 : proof_certificate_2,
+            certificate_id: certificate_id,
+            self_confirmation : self_confirmation,
+            signature: signature,
+            designation : designation,
+            form_submited_date : form_submited_date,
+            units: units,
+            geolocation: geolocation,
+            start_location: start_location,
+            product_category : product_category,
+            destination_location: destination_location
         }
       }).then(res =>{
             setMessage(res.data.message);
@@ -305,10 +325,165 @@ const handleChange = (event) => {
                       value ={carbonEmission}
                       onChange={e =>{setcarbonEmission(e.target.value)}}  
                     />
+                    <TextField
+                      label="product_category"
+                      id="product_category"
+                      type="text"
+                      fullWidth
+                      style={{paddingBottom:'10%'}}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <PersonIcon style={{color:"purple"}} />
+                          </InputAdornment>
+                        )
+                      }}
+                    
+                      value ={product_category}
+                      onChange={e =>{setProductCategory(e.target.value)}}  
+                    />
+                    <TextField
+                      label="designation"
+                      id="designation"
+                      type="text"
+                      fullWidth
+                      style={{paddingBottom:'10%'}}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <PersonIcon style={{color:"purple"}} />
+                          </InputAdornment>
+                        )
+                      }}
+                    
+                      value ={designation}
+                      onChange={e =>{setDesignation(e.target.value)}}  
+                    />
+                    <TextField
+                      label="form_submited_date"
+                      id="form_submited_date"
+                      type="text"
+                      fullWidth
+                      style={{paddingBottom:'10%'}}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <PersonIcon style={{color:"purple"}} />
+                          </InputAdornment>
+                        )
+                      }}
+                    
+                      value ={form_submited_date}
+                      onChange={e =>{setFormSubmissionDate(e.target.value)}}  
+                    />
+                    <TextField
+                      label="geolocation"
+                      id="geolocation"
+                      type="text"
+                      fullWidth
+                      style={{paddingBottom:'10%'}}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <PersonIcon style={{color:"purple"}} />
+                          </InputAdornment>
+                        )
+                      }}
+                    
+                      value ={geolocation}
+                      onChange={e =>{setGeolocation(e.target.value)}}  
+                    />
+                    <TextField
+                      label="start_location"
+                      id="start_location"
+                      type="text"
+                      fullWidth
+                      style={{paddingBottom:'10%'}}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <PersonIcon style={{color:"purple"}} />
+                          </InputAdornment>
+                        )
+                      }}
+                    
+                      value ={start_location}
+                      onChange={e =>{setStartLoaction(e.target.value)}}  
+                    />
+                    <TextField
+                      label="destination_location"
+                      id="destination_location"
+                      type="text"
+                      fullWidth
+                      style={{paddingBottom:'10%'}}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <PersonIcon style={{color:"purple"}} />
+                          </InputAdornment>
+                        )
+                      }}
+                    
+                      value ={destination_location}
+                      onChange={e =>{setDestinationLocation(e.target.value)}}  
+                    />
+                    <TextField
+                      label="certificate_id"
+                      id="certificate_id"
+                      type="text"
+                      fullWidth
+                      style={{paddingBottom:'10%'}}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <PersonIcon style={{color:"purple"}} />
+                          </InputAdornment>
+                        )
+                      }}
+                    
+                      value ={certificate_id}
+                      onChange={e =>{setCertificateId(e.target.value)}}  
+                    />
+
+<TextField
+                      label="proof_certificate_1"
+                      id="proof_certificate_1"
+                      type="text"
+                      fullWidth
+                      style={{paddingBottom:'10%'}}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <PersonIcon style={{color:"purple"}} />
+                          </InputAdornment>
+                        )
+                      }}
+                    
+                      value ={proof_certificate_1}
+                      onChange={e =>{setProof1(e.target.value)}}  
+                    />
+                  <TextField
+                      label="proof_certificate_2"
+                      id="name"
+                      type="text"
+                      fullWidth
+                      style={{paddingBottom:'10%'}}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <PersonIcon style={{color:"purple"}} />
+                          </InputAdornment>
+                        )
+                      }}
+                    
+                      value ={proof_certificate_2}
+                      onChange={e =>{setProof2(e.target.value)}}  
+                    />
+                    
 
 
 <TextField
-                      label="Name"
+                      label="Compliance"
                       id="name"
                       type="text"
                       fullWidth
@@ -324,10 +499,9 @@ const handleChange = (event) => {
                       value ={compliance}
                       onChange={e =>{setCompliance(e.target.value)}}  
                     />
-
-<TextField
-                      label="Name"
-                      id="name"
+                    <TextField
+                      label="self_confirmation"
+                      id="self_confirmation"
                       type="text"
                       fullWidth
                       style={{paddingBottom:'10%'}}
@@ -339,9 +513,27 @@ const handleChange = (event) => {
                         )
                       }}
                     
-                      value ={proof}
-                      onChange={e =>{setProof(e.target.value)}}  
+                      value ={self_confirmation}
+                      onChange={e =>{setSelfconfirmation(e.target.value)}}  
                     />
+                    <TextField
+                      label="signature"
+                      id="signature"
+                      type="text"
+                      fullWidth
+                      style={{paddingBottom:'10%'}}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">
+                            <PersonIcon style={{color:"purple"}} />
+                          </InputAdornment>
+                        )
+                      }}
+                    
+                      value ={signature}
+                      onChange={e =>{setSignature(e.target.value)}}  
+                    />
+                    
                   </CardBody>
 
                   <CardFooter className={classes.cardFooter}>

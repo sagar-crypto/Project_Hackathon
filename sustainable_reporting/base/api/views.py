@@ -107,10 +107,44 @@ def get_shipment_details(request, pk):
     
 @api_view(['POST'])
 def create_shipment(request):
-    if request.method == 'POST':
-        serializer = ShipmentSerializer(data=request.data)
+   if request.method == 'POST':
+        user_id = request.data.get('userId')
+        if not user_id:
+            return Response({"error": "User ID is required"}, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            supplier = models.Suplier.objects.get(user_id=user_id)
+        except supplier.DoesNotExist:
+            return Response({"error": "Supplier not found"}, status=status.HTTP_404_NOT_FOUND)
+
+        # Copy request data and map the fields to the model's expected fields
+        shipment_data = {
+            'product_name': request.data.get('product_name'),
+            'supplier_id': supplier.supplier_id, 
+            'price': request.data.get('price'),
+            'units_in_stock': request.data.get('units'),
+            'country_of_production': request.data.get('country'),
+            'DOP_manufacture': request.data.get('date'),
+            'geolocation': request.data.get('geolocation'),
+            'transport_mode': request.data.get('transport'),
+            'carbon_emissions': request.data.get('carbonEmission'),
+            'start_location': request.data.get('start_location'),
+            'destination_location': request.data.get('destination_location'),
+            'certificate_id' : request.data.get('certificate_id'),
+            'proof_certificate_1': request.data.get('proof_certificate_1'),
+            'proof_certificate_2': request.data.get('proof_certificate_2'),
+            'self_confirmation': request.data.get('compliance'),
+            'signature': request.data.get('signature'),
+            'designation': request.data.get('designation'),
+            'product_category': request.data.get('product_category'),
+            'form_submited_date': request.data.get('form_submited_date')
+        }
+
+        serializer = ShipmentSerializer(data=shipment_data)
+
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
