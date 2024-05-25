@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import axios from 'axios';
 import Chat from 'views/chatbot';
 // @mui/material components
@@ -37,52 +37,59 @@ export default function Form(props) {
   const [product, setProduct] = useState("");
   const [category, setCategory ] = useState("");
   const [price, setPrice ] = useState("");
-  const [units, setUnits ] = useState("");
   const [country, setCountry ] = useState("");
   const [date, setDate] = useState("");
   const [transport, setTransport] = useState("");
   const [carbonEmission, setcarbonEmission] = useState("");
   const [compliance, setCompliance] = useState("");
   const [proof, setProof] = useState("");
+  const [units, setUnits] = useState("");
 
   const [signupcolor, setSignupColor] = useState("warning");
   const [message, setMessage]= useState("");
   const [loginFal , setLoginFal] = useState(false);
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   const shipmentIdlist = [1,2,3,4,5,6]
+  let user_id = sessionStorage.getItem("User_id");
+
+  console.log(user_id);
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
   const { classes } = useStyles();
   const { ...rest } = props;
- 
-  const HandleLoginFaliure=()=>{
-    if(loginFal === true){
-      return(<SnackbarContent
-        message={
-          <span>
-           Something went wrong with Google SignUp
-          </span>
-        }
-        close
-        color="danger"
-        icon="info_outline"
-      />);
-    }
-    else {
-      return null;
-    }
-  }
-  
+
+  useEffect(() => {
+    // Replace with your API endpoint
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:8000/api/getshipmentdetails/'+ user_id + '/');
+        console.log(response.data.shipments_details);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   function handleSubmit(e){
     axios({
         method: 'post',
-        url: "http://localhost:8000/api/signup/basic/",
+        url: "http://localhost:8000/api/submitform/",
         headers: {}, 
         data: {
-            // username: name,  
-            // email: email,
-            // password: password
+            userId: user_id,
+            shipmentid: shipmentid,  
+            product: product,
+            price: price,
+            country: country,
+            date: date,
+            transport: transport,
+            carbonEmission: carbonEmission,
+            compliance: compliance,
+            proof: proof,
+            units: units
         }
       }).then(res =>{
             setMessage(res.data.message);

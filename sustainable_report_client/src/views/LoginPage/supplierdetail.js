@@ -63,10 +63,10 @@ export default function SupplierDetail(props) {
              else{
               setSignupColor("danger");
              }
-        //    const token = res.data.token;
-        //     console.log(token);
-        //    localStorage.setItem('TokenKey', token);
-           window.location.href = "/form";
+            const user_id = res.data.user_id;
+            console.log(user_id);
+            sessionStorage.setItem('User_id', user_id);
+            window.location.href = "/form";
         })
 }
 
