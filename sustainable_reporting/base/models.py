@@ -101,6 +101,7 @@ class Compliance(models.Model):
     shipment_id = models.ForeignKey(Shipment, on_delete = models.SET_NULL, null = True)
     certificate_id = models.ForeignKey(Certificate, on_delete = models.SET_NULL, null = True)
     compliance_date = models.DateTimeField()
+    compliant = models.CharField(max_length=255, null = False, default = 'no')
 
     def __str__(self):
         return f"Compliance {self.compliance_id} on {self.compliance_date}"
