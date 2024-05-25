@@ -61,7 +61,7 @@ export default function Form(props) {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
   const shipmentIdlist = [1,2,3,4,5,6]
   let user_id = sessionStorage.getItem("User_id");
-
+  let display = "none";
   console.log(user_id);
   setTimeout(function() {
     setCardAnimation("");
@@ -75,6 +75,9 @@ export default function Form(props) {
       try {
         const response = await axios.get('http://localhost:8000/api/getshipmentdetails/'+ user_id + '/');
         console.log(response.data.shipments_details);
+        if(response.data){
+          display = "inline"
+        }
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -146,7 +149,8 @@ const handleChange = (event) => {
                   </CardHeader>
                   <p className={classes.divider}></p>
                   <CardBody>
-                  <InputLabel id="demo-simple-select-autowidth-label">Age</InputLabel>
+                    <div style={{display: display}}>
+                  <InputLabel id="demo-simple-select-autowidth-label" >Shipment ID</InputLabel>
                 
                 <Select
                   labelId="demo-simple-select-autowidth-label"
@@ -162,24 +166,7 @@ const handleChange = (event) => {
                     </MenuItem>
                   ))}
                 </Select>
-
-                  <TextField
-                      label="ShipmentId"
-                      id="shipid"
-                      type="text"
-                      fullWidth
-                      style={{paddingBottom:'10%'}}
-                      InputProps={{
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <PersonIcon style={{color:"purple"}} />
-                          </InputAdornment>
-                        )
-                      }}
-                    
-                      value ={shipmentid}
-                      onChange={e =>{setShipmentid(e.target.value)}}  
-                    />
+                </div>
 
                   <TextField
                       label="Product"

@@ -26,7 +26,7 @@ def login_api(request):
 
     if user_data:
         if user_data[4] == 'supplier':
-            return JsonResponse({'message': 'Login successful', 'user_type': 'supplier'}, status=status.HTTP_200_OK)
+            return JsonResponse({'message': 'Login successful', 'user_type': 'supplier', 'user_id' : user_data[0]}, status=status.HTTP_200_OK)
         else:
             return JsonResponse({'message': 'Login successful', 'user_type': 'admin'})
     else:
@@ -98,8 +98,13 @@ def get_shipment_details(request, pk):
 
     try:
         supplier = models.Suplier.objects.get(user_id=user_id)
-        supplier_id = supplier.user_id
-        shipments = models.Shipment.objects.filter(supplier_id=supplier_id)
+        supplier_id = supplier.supplier_id
+        with connection.cursor() as cursor:
+            cursor.execute(
+                "select * from base_shipment where supplier_id_id = %s;",
+                [supplier_id]
+            )
+            shipments = cursor.fetchone()
         return Response({'shipments_details': shipments}, status=status.HTTP_200_OK)
     
     except models.Suplier.DoesNotExist:
