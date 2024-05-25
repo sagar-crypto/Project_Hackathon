@@ -79,15 +79,16 @@ export default function SignUp(props) {
         }}
       >
         <div className={classes.container}>
-          <GridContainer justify-content="center">
+          <GridContainer justify="center">
             <GridItem style={{ position: 'fixed', left: '50%',transform: 'translateX(-50%)'}} xs={12} sm={12} md={4}>
               <Card justify="center" className={classes[cardAnimaton]}>
                 <form className={classes.form}>
-                  <CardHeader color="primary" className={classes.cardHeader}>
+                  <CardHeader style ={{backgroundColor: "#4caf50"}} className={classes.cardHeader}>
                     <h4>SIGN UP</h4>
                   </CardHeader>
                   <p className={classes.divider}></p>
                   <CardBody>
+                  <p className={classes.divider}></p>
                   <TextField
                       label="Name"
                       id="name"

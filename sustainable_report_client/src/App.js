@@ -6,6 +6,7 @@ import SignUp from "views/LoginPage/Signup.js";
 import Home from "views/home.js";     
 import SupplierDetail from "views/LoginPage/supplierdetail.js"
 import Form from "views/form.js"
+import Report from "views/report"
 
 // import evef from "./views/LoginPage/EmailVerification.js"
 // import resetpass from "./views/LoginPage/ResetPassword.js"
@@ -20,6 +21,7 @@ function App() {
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/profile" element={<SupplierDetail />} />
           <Route path="/form" element={<Form />} />
+          <Route path="/report" element={<Report />} />
       </Routes>
     </BrowserRouter>
   );

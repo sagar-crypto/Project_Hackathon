@@ -40,7 +40,7 @@ const ChatComponent = () => {
         {
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer YOUR_TOKEN`, // Replace with your actual API key
+            Authorization: `Bearer MYTOKEN`, // Replace with your actual API key
           },
         }
       );

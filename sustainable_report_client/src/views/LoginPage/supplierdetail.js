@@ -27,7 +27,7 @@ import TextField from '@mui/material/TextField';
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 import image from "assets/img/bg7.jpg";
 
-const useStyles = makeStyles(styles);
+const useStyles = makeStyles()(styles);
 
 export default function SupplierDetail(props) {
   const [supplierName, setSupplierName] = useState("");
@@ -73,7 +73,7 @@ export default function SupplierDetail(props) {
   return (
     <div>
    
-      <div
+   <div
         className={classes.pageHeader}
         style={{
           backgroundImage: "url(" + image + ")",
@@ -83,14 +83,15 @@ export default function SupplierDetail(props) {
       >
         <div className={classes.container}>
           <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={4}>
-              <Card className={classes[cardAnimaton]}>
+            <GridItem  style={{ position: 'fixed', left: '50%',transform: 'translateX(-50%)'}}  xs={12} sm={12} md={4}>
+              <Card justify = "center" className={classes[cardAnimaton]}>
                 <form className={classes.form}>
-                  <CardHeader color="primary" className={classes.cardHeader}>
+                  <CardHeader style ={{backgroundColor: "#4caf50"}} className={classes.cardHeader}>
                     <h4>Just a few more questions</h4>
                   </CardHeader>
                   <p className={classes.divider}></p>
                   <CardBody>
+                  <p className={classes.divider}></p>
                   <TextField
                       label="SupplierName"
                       id="name"
@@ -159,11 +160,10 @@ export default function SupplierDetail(props) {
                       value ={contactPersonnm}
                       onChange={e =>{setContactPersonnm(e.target.value)}}  
                     />     
-
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
                     <Button simple color="primary" size="lg" onClick={handleSubmit}>
-                      Get started
+                      Submit
                     </Button>
                   </CardFooter>
                 </form>
@@ -171,7 +171,6 @@ export default function SupplierDetail(props) {
             </GridItem>
           </GridContainer>
         </div>
-        <Footer whiteFont />
       </div>
     </div>
   );
