@@ -4,7 +4,7 @@ from django.db import connection
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializer import BasicSignupSerializer, AdditionalDetailsSerializer
+from .serializer import BasicSignupSerializer, AdditionalDetailsSerializer, ShipmentSerializer
 from rest_framework import status
 import openai
 from decouple import config
@@ -44,7 +44,7 @@ def basic_signup_api(request):
             request.session['email'] = serializer.validated_data.get('email')
             user = serializer.save()
             return Response({'message': 'Basic signup successful'}, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_208_ALREADY_REPORTED)
     return Response({'error': 'Invalid request method'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
 
 
@@ -94,18 +94,23 @@ def get_response(request):
 
 @api_view(['GET'])
 def get_shipment_details(request, pk):
-    if request.user.is_authenticated:
-        user_id = pk
+    user_id = pk
 
-        try:
-            supplier = models.Suplier.objects.get(user_id=user_id)
-            supplier_id = supplier.id
-            shipments = models.Shipment.objects.filter(supplier_id=supplier_id)
-            return Response({'shipments_details': shipments}, status=status.HTTP_200_OK)
-        
-        except models.Suplier.DoesNotExist:
+    try:
+        supplier = models.Suplier.objects.get(user_id=user_id)
+        supplier_id = supplier.user_id
+        shipments = models.Shipment.objects.filter(supplier_id=supplier_id)
+        return Response({'shipments_details': shipments}, status=status.HTTP_200_OK)
+    
+    except models.Suplier.DoesNotExist:
             return Response({'error': 'No supplier details found'}, status=status.HTTP_404_NOT_FOUND)
-    else:
-
-        return Response({'error': 'User is not authenticated'}, status=status.HTTP_401_UNAUTHORIZED)
+    
+@api_view(['POST'])
+def create_shipment(request):
+    if request.method == 'POST':
+        serializer = ShipmentSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

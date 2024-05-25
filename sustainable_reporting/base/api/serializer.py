@@ -61,3 +61,8 @@ class AdditionalDetailsSerializer(serializers.ModelSerializer):
             user_id = user_id
         )
         return supplier
+    
+class ShipmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Shipment
+        fields = '__all__'
