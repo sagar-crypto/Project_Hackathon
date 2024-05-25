@@ -4,7 +4,29 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, UserM
 # Create your models here.
 
 
+
+class CustomUser(AbstractBaseUser, PermissionsMixin):
+    USER_TYPE_CHOICES = [
+        ('admin', 'Admin'),
+        ('supplier', 'Supplier'),
+    ]
+    user_type = models.CharField(max_length=10, choices=USER_TYPE_CHOICES, default='supplier')
+
+    email = models.EmailField(unique=True)
+    username = models.CharField(max_length=150, unique=True)
+
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
+
+    objects = UserManager()
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
+
+    class Meta:
+        db_table = 'custom_user'
 class Suplier(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, null = True)
     supplier_id = models.AutoField(primary_key=True)
     supplier_name = models.CharField(max_length=255)
     country = models.CharField(max_length=255)
@@ -83,24 +105,5 @@ class Compliance(models.Model):
     def __str__(self):
         return f"Compliance {self.compliance_id} on {self.compliance_date}"
     
-class CustomUser(AbstractBaseUser, PermissionsMixin):
-    USER_TYPE_CHOICES = [
-        ('admin', 'Admin'),
-        ('supplier', 'Supplier'),
-    ]
-    user_type = models.CharField(max_length=10, choices=USER_TYPE_CHOICES, default='supplier')
 
-    email = models.EmailField(unique=True)
-    username = models.CharField(max_length=150, unique=True)
-
-    is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
-
-    objects = UserManager()
-
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']
-
-    class Meta:
-        db_table = 'custom_user'
 

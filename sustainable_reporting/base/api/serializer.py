@@ -45,18 +45,19 @@ class BasicSignupSerializer(serializers.ModelSerializer):
 
 
 class AdditionalDetailsSerializer(serializers.ModelSerializer):
-    email = serializers.EmailField(required=False)  # Make email optional
-
+    email = serializers.EmailField(required=False)
     class Meta:
         model = models.Suplier
-        fields = ['supplier_name', 'country', 'contact_name', 'email', 'phone']
+        fields = ['supplier_name', 'country', 'contact_name', 'email', 'phone', 'user_id']
 
     def create(self, validated_data):
+        user_id = self.context.get('user_id')
         supplier = models.Suplier.objects.create(
             supplier_name=validated_data['supplier_name'],
             country=validated_data['country'],
             contact_name=validated_data['contact_name'],
             email=validated_data['email'],
-            phone=validated_data['phone']
+            phone=validated_data['phone'],
+            user_id = user_id
         )
         return supplier

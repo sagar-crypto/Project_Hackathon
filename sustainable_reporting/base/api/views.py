@@ -8,6 +8,7 @@ from .serializer import BasicSignupSerializer, AdditionalDetailsSerializer
 from rest_framework import status
 import openai
 from decouple import config
+from .. import models
 
 
 openai.api_key =config('OPEN_AI_KEY')
@@ -49,23 +50,26 @@ def basic_signup_api(request):
 
 def get_last_signed_up_email():
     with connection.cursor() as cursor:
-        cursor.execute("SELECT email FROM custom_user ORDER BY id DESC LIMIT 1")
+        cursor.execute("SELECT email,id  FROM custom_user ORDER BY id DESC LIMIT 1")
         row = cursor.fetchone()
-    return row[0] if row else None
+    return row if row else None
 
 @api_view(['POST'])
 def additional_details_api(request):
-    email = get_last_signed_up_email()
+    data = get_last_signed_up_email()
+    email = data[0]
+    id = data[1]
     if not email:
         return Response({'error': 'Email not found in session'}, status=status.HTTP_400_BAD_REQUEST)
 
     data = request.data.copy()  
-    data['email'] = email  
+    data['email'] = email
+    user_id = id 
 
-    serializer = AdditionalDetailsSerializer(data=data)
+    serializer = AdditionalDetailsSerializer(data = data, context={'user_id': user_id})
     if serializer.is_valid():
         supplier = serializer.save()
-        return Response({'message': 'Additional details saved'}, status=status.HTTP_200_OK)
+        return Response({'message': 'Additional details saved', 'user_id': user_id}, status=status.HTTP_200_OK)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 def get_chat_completion(prompt):
@@ -86,3 +90,22 @@ def get_response(request):
         response = get_chat_completion(user_input)
         return JsonResponse({'response': response})
     return JsonResponse({'response': 'Invalid request method'})
+
+
+@api_view(['GET'])
+def get_shipment_details(request, pk):
+    if request.user.is_authenticated:
+        user_id = pk
+
+        try:
+            supplier = models.Suplier.objects.get(user_id=user_id)
+            supplier_id = supplier.id
+            shipments = models.Shipment.objects.filter(supplier_id=supplier_id)
+            return Response({'shipments_details': shipments}, status=status.HTTP_200_OK)
+        
+        except models.Suplier.DoesNotExist:
+            return Response({'error': 'No supplier details found'}, status=status.HTTP_404_NOT_FOUND)
+    else:
+
+        return Response({'error': 'User is not authenticated'}, status=status.HTTP_401_UNAUTHORIZED)
+
