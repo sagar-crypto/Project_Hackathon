@@ -240,7 +240,7 @@ const handleChange = (event) => {
                     />
 
 
-<TextField
+                <TextField
                       label="Country"
                       id="country"
                       type="text"
@@ -258,7 +258,7 @@ const handleChange = (event) => {
                       onChange={e =>{setCountry(e.target.value)}}  
                     />
 
-<TextField
+                    <TextField
                       label="Date"
                       id="date"
                       type="text"
