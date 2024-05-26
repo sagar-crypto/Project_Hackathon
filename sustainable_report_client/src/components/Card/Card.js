@@ -1,0 +1,36 @@
+import React from "react";
+// nodejs library to set properties for components
+import PropTypes from "prop-types";
+
+// @material-ui/core components
+import { makeStyles } from 'tss-react/mui';
+
+// @material-ui/icons
+
+// core components
+import styles from "../../assets/jss/material-kit-react/components/cardStyle.js";
+
+const useStyles = makeStyles()(styles);
+
+export default function Card(props) {
+  const { classes, cx } = useStyles();
+  const { className, children, plain, carousel, ...rest } = props;
+  const cardClasses = cx({
+    [classes.card]: true,
+    [classes.cardPlain]: plain,
+    [classes.cardCarousel]: carousel,
+    [className]: className !== undefined
+  });
+  return (
+    <div className={cardClasses} {...rest}>
+      {children}
+    </div>
+  );
+}
+
+Card.propTypes = {
+  className: PropTypes.string,
+  plain: PropTypes.bool,
+  carousel: PropTypes.bool,
+  children: PropTypes.node
+};
